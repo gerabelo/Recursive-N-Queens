@@ -4,6 +4,7 @@
 int numero_de_rainhas = 8;
 int *linha_inteira = NULL;
 int contador_solucoes = 0;
+int contador_printlinha = 1;
 
 int isValid(int coluna, int linha, int steps) {
         if (coluna == 0) {
@@ -13,10 +14,12 @@ int isValid(int coluna, int linha, int steps) {
 }
 
 void printlinha_inteira() {
-        printf("\n");
+	
+        printf("\n\t[%d]",contador_printlinha);
         for (int contador = 0; contador < numero_de_rainhas; contador++) {
                 printf("%d ",linha_inteira[contador]);
         }
+	contador_printlinha++;
 }
 
 int busca(int coluna, int linha) {
@@ -61,7 +64,7 @@ int main() {
   //                      contador_solucoes++;
                 }
         }
-        printf("\n%d soluções possíveis no tabuleiro %dx%d\n\n",contador_solucoes,numero_de_rainhas,numero_de_rainhas);
+        printf("\n\n\t%d soluções possíveis no tabuleiro %dx%d\n\n",contador_solucoes,numero_de_rainhas,numero_de_rainhas);
         free(linha_inteira);
         return 0;
 }
