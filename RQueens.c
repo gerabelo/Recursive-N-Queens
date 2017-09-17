@@ -6,7 +6,7 @@
 
 FILE *arquivo = NULL;
 
-int numero_de_rainhas           = 12;
+int numero_de_rainhas           = 8;
 long int *linha_inteira              = NULL;
 int contador_solucoes           = 0;
 int contador_printlinha         = 1;
@@ -42,7 +42,7 @@ int busca(int coluna, long int linha) {
         if (isValid(coluna, linha, 0)) {
                 if (coluna == numero_de_rainhas-1) {
                         linha_inteira[coluna] = linha;
-                        //printlinha_inteira();
+                        printlinha_inteira();
                         if (printlinha_inteira_em_arquivo(arquivo)) { sleep(0.5); }
                         contador_solucoes++;
                         return 0;
@@ -87,10 +87,11 @@ int main() {
                                 if (printlinha_inteira_em_arquivo(arquivo)) { sleep(0.5); }
                                 //sleep(0.5);
                         }
+                        
                 }
                 end_t = clock();       
                 total_t = (double)(end_t - start_t) / CLOCKS_PER_SEC;
-
+                //printlinha_inteira();
                 printf("\n\n\t%d soluções possíveis no tabuleiro %dx%d encontradas em %f segundos\n\tobs.: algumas soluções são meras inversões de outras.\n\n",contador_solucoes,numero_de_rainhas,numero_de_rainhas,total_t);
 
                 free(linha_inteira);
